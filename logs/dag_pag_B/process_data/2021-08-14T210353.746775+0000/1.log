@@ -1,0 +1,39 @@
+[2021-08-14 21:04:17,906] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.process_data 2021-08-14T21:03:53.746775+00:00 [queued]>
+[2021-08-14 21:04:17,918] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.process_data 2021-08-14T21:03:53.746775+00:00 [queued]>
+[2021-08-14 21:04:17,919] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 21:04:17,919] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-08-14 21:04:17,920] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 21:04:17,934] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): process_data> on 2021-08-14T21:03:53.746775+00:00
+[2021-08-14 21:04:17,938] {standard_task_runner.py:52} INFO - Started process 143 to run task
+[2021-08-14 21:04:17,942] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_pag_B', 'process_data', '2021-08-14T21:03:53.746775+00:00', '--job-id', '50', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/pag1.py', '--cfg-path', '/tmp/tmp0h_vd7n5', '--error-file', '/tmp/tmprmtfpzrn']
+[2021-08-14 21:04:17,943] {standard_task_runner.py:77} INFO - Job 50: Subtask process_data
+[2021-08-14 21:04:17,990] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_pag_B.process_data 2021-08-14T21:03:53.746775+00:00 [running]> on host aa5fbd5b1745
+[2021-08-14 21:04:18,084] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_pag_B
+AIRFLOW_CTX_TASK_ID=process_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-14T21:03:53.746775+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-14T21:03:53.746775+00:00
+[2021-08-14 21:04:18,085] {pag1.py:31} INFO - PROCESS-DATA STARTED
+[2021-08-14 21:04:18,086] {pag1.py:33} INFO - PROCESS-DATA Getting raw data from queue
+[2021-08-14 21:04:23,090] {pag1.py:36} INFO - <class 'dict'>
+[2021-08-14 21:04:23,091] {pag1.py:38} INFO - PROCESS-DATA Transforming raw data to dataframe
+[2021-08-14 21:04:26,507] {pag1.py:41} INFO - PROCESS-DATA Removing unwanted values from "gender" column
+[2021-08-14 21:04:27,673] {pag1.py:58} INFO - PROCESS-DATA Removing unwanted values from "age" column
+[2021-08-14 21:04:28,979] {pag1.py:74} INFO - PROCESS-DATA Generating new column "month"
+[2021-08-14 21:04:29,137] {pag1.py:86} INFO - PROCESS-DATA Generating new column "year"
+[2021-08-14 21:04:29,139] {pag1.py:90} INFO - PROCESS-DATA Replacing zero values with None
+[2021-08-14 21:04:29,302] {logging_mixin.py:104} WARNING - /opt/***/dags/pag1.py:91 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2021-08-14 21:04:29,318] {pag1.py:93} INFO - PROCESS-DATA Ensuring column types
+[2021-08-14 21:04:29,437] {pag1.py:98} INFO - PROCESS-DATA Saving data to dictionary
+[2021-08-14 21:04:33,587] {pag1.py:101} INFO - PROCESS-DATA Sending formatted data through queue
+[2021-08-14 21:04:48,557] {pag1.py:104} INFO - PROCESS-DATA FINISHED
+[2021-08-14 21:04:48,741] {python.py:151} INFO - Done. Returned value was: None
+[2021-08-14 21:04:48,754] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=dag_pag_B, task_id=process_data, execution_date=20210814T210353, start_date=20210814T210417, end_date=20210814T210448
+[2021-08-14 21:04:48,782] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-08-14 21:04:48,792] {local_task_job.py:149} INFO - Task exited with return code 0

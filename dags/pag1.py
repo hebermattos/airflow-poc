@@ -95,7 +95,7 @@ def _process_data(ti):
     df['zipcodeOri'] = df['zipcodeOri'].astype('int32')
     df['zipMerchant'] = df['zipMerchant'].astype('int32')
 
-    logging.info(f'PROCESS-DATA Saving data to dictionary')
+    logging.info('PROCESS-DATA Saving data to dictionary')
     dict_df = df.to_dict()
 
     logging.info('PROCESS-DATA Sending formatted data through queue')
@@ -107,25 +107,25 @@ def _process_data(ti):
 def _load_data(ti):
     logging.info('LOAD-DATA STARTED')
 
-    db_data = 'mysql+mysqldb://' + 'root' + ':' + 'alcool666' + '@' + '172.28.64.1' + ':3306/' + 'db' + '?charset=utf8mb4'
+    db_data = 'mysql+mysqldb://root:root@dbmysql/db'
     engine = create_engine(db_data)
 
     logging.info('LOAD-DATA Getting formatted data from queue')
     json_df = ti.xcom_pull(key='processed_dataset', task_ids=['process_data'])[0]
 
     logging.info('LOAD-DATA Transforming formatted data to dataframe')
-    df = pd.DataFrame.from_dict(json_df, orient='index')
+    df = pd.DataFrame.from_dict(json_df, orient='columns')
 
     # Envia para o SQL os dados
     logging.info('LOAD-DATA Saving formatted data to MySQL database')
     start = time.time()
     df.to_sql('transactions', engine, if_exists='append', index=False)
     end = time.time()
-    logging.info(f'LOAD-DATA Data saved to MySQL in {end - start}')
+    logging.info('LOAD-DATA Data saved to MySQL in {end - start}')
 
     logging.info('LOAD-DATA FINISHED')
 
-url = 'https://github.com/marcellocaron/desafio_pagseguro/raw/main/bs140513_032310.csv'
+    url = 'https://github.com/marcellocaron/desafio_pagseguro/raw/main/bs140513_032310.csv'
 
 
 with DAG(dag_id='dag_pag_B', start_date=datetime.datetime(2020, 1, 1), schedule_interval='@daily', catchup=False) as dag:

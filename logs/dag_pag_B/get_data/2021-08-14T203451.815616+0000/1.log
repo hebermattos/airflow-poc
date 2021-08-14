@@ -1,0 +1,24 @@
+[2021-08-14 20:34:54,394] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.get_data 2021-08-14T20:34:51.815616+00:00 [queued]>
+[2021-08-14 20:34:54,425] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.get_data 2021-08-14T20:34:51.815616+00:00 [queued]>
+[2021-08-14 20:34:54,425] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 20:34:54,426] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-08-14 20:34:54,426] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 20:34:54,447] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): get_data> on 2021-08-14T20:34:51.815616+00:00
+[2021-08-14 20:34:54,451] {standard_task_runner.py:52} INFO - Started process 111 to run task
+[2021-08-14 20:34:54,455] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_pag_B', 'get_data', '2021-08-14T20:34:51.815616+00:00', '--job-id', '40', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/pag1.py', '--cfg-path', '/tmp/tmp89xqx65l', '--error-file', '/tmp/tmpakhu0c86']
+[2021-08-14 20:34:54,456] {standard_task_runner.py:77} INFO - Job 40: Subtask get_data
+[2021-08-14 20:34:54,516] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_pag_B.get_data 2021-08-14T20:34:51.815616+00:00 [running]> on host aa5fbd5b1745
+[2021-08-14 20:34:54,594] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_pag_B
+AIRFLOW_CTX_TASK_ID=get_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-14T20:34:51.815616+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-14T20:34:51.815616+00:00
+[2021-08-14 20:34:54,596] {pag1.py:13} INFO - GET-DATA STARTED
+[2021-08-14 20:34:54,596] {pag1.py:15} INFO - GET-DATA Starting download
+[2021-08-14 20:35:03,555] {pag1.py:19} INFO - GET-DATA Finished downloading data in 8.95813775062561
+[2021-08-14 20:35:03,556] {pag1.py:21} INFO - GET-DATA Saving data to dictionary
+[2021-08-14 20:35:07,256] {pag1.py:24} INFO - GET-DATA Sending data through queue
+[2021-08-14 20:35:17,102] {local_task_job.py:149} INFO - Task exited with return code Negsignal.SIGKILL

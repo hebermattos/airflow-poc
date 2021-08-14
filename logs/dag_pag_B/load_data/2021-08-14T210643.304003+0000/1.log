@@ -1,0 +1,28 @@
+[2021-08-14 21:07:43,491] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.load_data 2021-08-14T21:06:43.304003+00:00 [queued]>
+[2021-08-14 21:07:43,523] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: dag_pag_B.load_data 2021-08-14T21:06:43.304003+00:00 [queued]>
+[2021-08-14 21:07:43,523] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 21:07:43,524] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-08-14 21:07:43,524] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-08-14 21:07:43,559] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): load_data> on 2021-08-14T21:06:43.304003+00:00
+[2021-08-14 21:07:43,565] {standard_task_runner.py:52} INFO - Started process 372 to run task
+[2021-08-14 21:07:43,571] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'dag_pag_B', 'load_data', '2021-08-14T21:06:43.304003+00:00', '--job-id', '54', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/pag1.py', '--cfg-path', '/tmp/tmpsdusrhjp', '--error-file', '/tmp/tmplsrwoq9s']
+[2021-08-14 21:07:43,573] {standard_task_runner.py:77} INFO - Job 54: Subtask load_data
+[2021-08-14 21:07:43,656] {logging_mixin.py:104} INFO - Running <TaskInstance: dag_pag_B.load_data 2021-08-14T21:06:43.304003+00:00 [running]> on host aa5fbd5b1745
+[2021-08-14 21:07:43,759] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=dag_pag_B
+AIRFLOW_CTX_TASK_ID=load_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-08-14T21:06:43.304003+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-08-14T21:06:43.304003+00:00
+[2021-08-14 21:07:43,761] {pag1.py:108} INFO - LOAD-DATA STARTED
+[2021-08-14 21:07:43,795] {pag1.py:113} INFO - LOAD-DATA Getting formatted data from queue
+[2021-08-14 21:07:49,754] {pag1.py:116} INFO - LOAD-DATA Transforming formatted data to dataframe
+[2021-08-14 21:07:54,071] {pag1.py:120} INFO - LOAD-DATA Saving formatted data to MySQL database
+[2021-08-14 21:08:50,934] {pag1.py:124} INFO - LOAD-DATA Data saved to MySQL in {end - start}
+[2021-08-14 21:08:50,934] {pag1.py:126} INFO - LOAD-DATA FINISHED
+[2021-08-14 21:08:51,052] {python.py:151} INFO - Done. Returned value was: None
+[2021-08-14 21:08:51,062] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=dag_pag_B, task_id=load_data, execution_date=20210814T210643, start_date=20210814T210743, end_date=20210814T210851
+[2021-08-14 21:08:51,088] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-08-14 21:08:51,124] {local_task_job.py:149} INFO - Task exited with return code 0
